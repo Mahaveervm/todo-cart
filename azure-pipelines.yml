@@ -1,13 +1,15 @@
 trigger:
   branches:
     include:
-      - master
-      - dev
+      - main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- checkout: self
+  fetchDepth: 1
+
 - task: NodeTool@0
   inputs:
     versionSpec: '22.5.1'
