@@ -8,10 +8,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseNode@2
+- task: NodeTool@0
   inputs:
-    versionSpec: '16.x'
-    addToPath: true
+    versionSpec: '22.5.1'
+    checkLatest: true
 
 - script: |
     npm install
