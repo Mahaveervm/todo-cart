@@ -16,8 +16,9 @@ steps:
 
 - script: |
     npm install
-    npm run build
-  displayName: 'Install dependencies and build the app'
+    npm test -- --coverage
+  displayName: 'Run Tests'
+
 
 - task: PublishBuildArtifacts@1
   inputs:
