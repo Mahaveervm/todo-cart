@@ -1,0 +1,24 @@
+trigger:
+  branches:
+    include:
+      - master
+      - dev
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseNode@2
+  inputs:
+    versionSpec: '16.x'
+    addToPath: true
+
+- script: |
+    npm install
+    npm run build
+  displayName: 'Install dependencies and build the app'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
