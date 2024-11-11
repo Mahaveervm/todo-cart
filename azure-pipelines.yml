@@ -2,18 +2,17 @@ trigger:
   branches:
     include:
       - main
+      - dev
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - checkout: self
-  fetchDepth: 1
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '22.5.1'
-    checkLatest: true
+    versionSpec: '22.x'   # Replace with your specific version if needed (e.g., '22.5.1')
 
 - script: |
     npm install
